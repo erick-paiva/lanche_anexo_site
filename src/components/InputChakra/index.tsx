@@ -7,6 +7,7 @@ import {
   InputProps as ChakraInputProps,
   InputLeftElement,
   InputGroup,
+  InputRightElement,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons/lib";
 import {
@@ -16,12 +17,14 @@ import {
   ForwardRefRenderFunction,
   forwardRef,
 } from "react";
+import { JsxChild, JsxElement } from "typescript";
 
 interface InputProps extends ChakraInputProps {
   name: string;
   label?: string;
   error?: FieldError | null;
-  icon?: IconType;
+  icon?: JSX.Element;
+  iconRigth?: JSX.Element;
 }
 
 type inputVariationOptions = {
@@ -36,7 +39,7 @@ const inputVariation: inputVariationOptions = {
 };
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { name, label, icon: Icon, error = null, ...rest },
+  { name, label, icon, iconRigth, error = null, ...rest },
   ref
 ) => {
   const [value, setValue] = useState("");
@@ -65,9 +68,9 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       {!!label && <FormLabel color="gray.400">{label}</FormLabel>}
 
       <InputGroup flexDirection="column">
-        {Icon && (
+        {icon && (
           <InputLeftElement color={inputVariation[variation]} mt="2.5">
-            <Icon />
+            {icon}
           </InputLeftElement>
         )}
 
@@ -91,6 +94,12 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
           ref={ref}
           {...rest}
         />
+          {iconRigth && (
+          <InputRightElement color={inputVariation[variation]} h="100%">
+            {iconRigth}
+          </InputRightElement>
+        )}
+
 
         {!!error && (
           <FormErrorMessage color="red.500">{error.message}</FormErrorMessage>
@@ -100,4 +109,4 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   );
 };
 
-export const Input = forwardRef(InputBase);
+export const InputChakra = forwardRef(InputBase);
