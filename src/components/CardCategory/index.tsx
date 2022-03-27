@@ -1,14 +1,21 @@
 import { Box, Center, Flex, Image } from "@chakra-ui/react";
-import ImageDefault from "../../assets/hamburguer_real.png";
+import { useHistory } from "react-router-dom";
+interface Props {
+  img: string;
+  name: string;
+  categoria?: string;
+}
 
-export const CardCategory = () => {
+export const CardCategory = ({ img, name, categoria="/menu"}: Props) => {
+  const history = useHistory();
   return (
     <Center
       h="110px"
-      w="140px"
+      w="130px"
       alignItems={"center"}
       bg="gray.100"
       borderRadius={"8px"}
+      onClick={() => history.push(categoria)}
     >
       <Center
         w="100px"
@@ -18,7 +25,12 @@ export const CardCategory = () => {
         alignItems="flex-end"
         mt="20px"
       >
-        <Image src={ImageDefault} h="72px" />
+        <Image
+          src={img}
+          alt={name}
+          h="72px"
+          transition={"filter .5s, -webkit-filter .5s;"}
+        />
       </Center>
     </Center>
   );

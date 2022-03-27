@@ -2,6 +2,7 @@ import { Box, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
 import { CardCategory } from "../../components/CardCategory";
 import { ControlerUser } from "../../components/ControlerUser";
 import { HeaderLanche } from "../../components/Header";
+import {images} from "../../Data/imagensCategorias";
 
 export const MenuCategorias = () => {
   return (
@@ -13,9 +14,12 @@ export const MenuCategorias = () => {
         w="100%"
         paddingY={"20px"}
         justifyItems="center"
+        overflowY={"scroll"}
+        paddingX="20px"
+        mt="1px"
       >
-        {[1, 2, 3, 4, 5, 6].map(() => (
-            <CardCategory />
+        {images.map(({name, img}) => (
+            <CardCategory name={name} img={img} />
         ))}
       </Grid>
       <ControlerUser />

@@ -12,12 +12,13 @@ import google from "../../assets/icons/google.svg";
 import { InputChakra } from "../../components/InputChakra";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const history = useHistory();
   const poli = {
-    "clip-path":
-      "circle(110% at 50% -49%)"
+    "clip-path": "circle(110% at 50% -49%)",
   };
 
   const animation = { animation: "mymove 5s infinite" };
@@ -49,7 +50,7 @@ export default function Login() {
               mostrarSenha ? (
                 <BsEye color="red" onClick={mostrar} cursor="pointer" />
               ) : (
-                <BsEyeSlash color="red" onClick={mostrar} cursor="pointer"  />
+                <BsEyeSlash color="red" onClick={mostrar} cursor="pointer" />
               )
             }
             name="senha"
@@ -59,7 +60,13 @@ export default function Login() {
           <Text color="blue.300">Esqueci a senha</Text>
         </Flex>
 
-        <Button bg="blue.200" h="51px" w="100%" color={"white"}>
+        <Button
+          bg="blue.200"
+          h="51px"
+          w="100%"
+          color={"white"}
+          onClick={() => history.push("/menu")}
+        >
           Entrar
         </Button>
         <Button
@@ -70,8 +77,8 @@ export default function Login() {
           color={"gray.400"}
           fontSize="14px"
           boxShadow={"md"}
-          _hover={{"bg": "red"}}
-          _active={{"bg": "yellow"}}
+          _hover={{ bg: "red" }}
+          _active={{ bg: "yellow" }}
         >
           Continuar com Google
         </Button>
