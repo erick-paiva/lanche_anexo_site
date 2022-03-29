@@ -2,11 +2,10 @@ import { Box, Center, Flex, Image } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 interface Props {
   img: string;
-  name: string;
-  categoria?: string;
+  name?: string;
 }
 
-export const CardCategory = ({ img, name, categoria="/menu"}: Props) => {
+export const CardCategory = ({ img, name="/menu"}: Props) => {
   const history = useHistory();
   return (
     <Center
@@ -15,7 +14,7 @@ export const CardCategory = ({ img, name, categoria="/menu"}: Props) => {
       alignItems={"center"}
       bg="gray.100"
       borderRadius={"8px"}
-      onClick={() => history.push(categoria)}
+      onClick={() => history.push(`cardapio/${name.toLowerCase()}`)}
     >
       <Center
         w="100px"

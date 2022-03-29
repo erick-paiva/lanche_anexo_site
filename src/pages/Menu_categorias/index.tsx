@@ -5,6 +5,8 @@ import { HeaderLanche } from "../../components/Header";
 import {images} from "../../Data/imagensCategorias";
 
 export const MenuCategorias = () => {
+
+  
   return (
     <Flex h="100vh" flexDirection={"column"} justifyContent="space-between" >
       <HeaderLanche />
@@ -12,6 +14,7 @@ export const MenuCategorias = () => {
         templateColumns="repeat(auto-fill, minmax(120px, 1fr))"
         gridGap="20px 0"
         w="100%"
+        h="100%"
         paddingY={"20px"}
         justifyItems="center"
         overflowY={"scroll"}
