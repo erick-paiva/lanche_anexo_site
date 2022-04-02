@@ -20,6 +20,7 @@ export const MenuCategorias = () => {
         overflowY={"scroll"}
         paddingX="20px"
         mt="1px"
+
       >
         {images.map(({name, img}) => (
             <CardCategory key={name} name={name} img={img} />

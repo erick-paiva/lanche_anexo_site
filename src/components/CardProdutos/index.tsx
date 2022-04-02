@@ -13,10 +13,6 @@ export const CardProdutos = ({ img, name, price, desc = "" }: Props) => {
     currency: "BRL",
   });
 
-  // display: -webkit-box;
-  //   -webkit-line-clamp: 2;
-  //   -webkit-box-orient: vertical;
-  //   white-space: normal;
 
   const descFormated = desc.length > 60 ? desc.slice(0, 60) + "..." : desc;
   return (

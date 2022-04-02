@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import logoLanche from "../../assets/logo_lanche/logo_lanche.svg";
 import { CartLanche } from "../Cart";
 
-export const HeaderLanche = () => {
+interface HeaderProps {
+  voltar?: string;
+}
 
-  
-
+export const HeaderLanche = ({ voltar="/menu" }: HeaderProps) => {
+  localStorage.setItem("voltar", voltar);
   return (
     <Flex
       borderBottom={"0.5px solid #717171"}

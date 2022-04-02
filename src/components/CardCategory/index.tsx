@@ -6,7 +6,9 @@ interface Props {
 }
 
 export const CardCategory = ({ img, name="/menu"}: Props) => {
+
   const history = useHistory();
+
   return (
     <Center
       h="110px"
@@ -14,7 +16,7 @@ export const CardCategory = ({ img, name="/menu"}: Props) => {
       alignItems={"center"}
       bg="gray.100"
       borderRadius={"8px"}
-      onClick={() => history.push(`cardapio/${name.toLowerCase()}`)}
+      onClick={() => history.push(`/cardapio/${name.toLowerCase()}`)}
     >
       <Center
         w="100px"

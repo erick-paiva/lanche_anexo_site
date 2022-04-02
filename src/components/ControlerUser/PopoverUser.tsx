@@ -2,14 +2,17 @@ import { Flex, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsBagCheck, BsGearWide } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
+import { useHistory } from "react-router-dom";
 
 export const PopoverUser = () => {
+
+    const history = useHistory();
   const itens = [
     {
       itemName: "Meus pedidos",
       icon: <BsBagCheck size={"24px"} />,
       funcao: () => {
-        console.log("Meus pedidos");
+        history.push("/finalizar-compras");
       },
     },
     {
@@ -23,7 +26,7 @@ export const PopoverUser = () => {
       itemName: "Sair",
       icon: <BiLogIn size={"27px"} />,
       funcao: () => {
-        console.log("Sair");
+        history.push("/");
       },
     },
   ];

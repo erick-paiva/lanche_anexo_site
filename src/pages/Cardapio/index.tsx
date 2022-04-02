@@ -29,10 +29,11 @@ export const Cardapio = () => {
   //   };
   // }, []);
 
+  
 
   return (
     <Flex flexDirection={"column"} h="100vh" justifyContent={"space-between"}>
-      <HeaderLanche />
+      <HeaderLanche voltar={`/cardapio/${categoria}`} />
 
       <Grid
         templateColumns="repeat(auto-fill, minmax(120px, 1fr))"
