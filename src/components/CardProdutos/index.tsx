@@ -22,7 +22,7 @@ export const CardProdutos = ({ img, name, price, desc = "" }: Props) => {
   return (
     <Box w="120px" bg="white" borderRadius={"6px"} boxShadow="lg">
       <Center as="figure">
-        <Image src={img} alt={name} h="85px" />
+        <Image src={img} alt={name} boxSize="85px" />
       </Center>
       <VStack spacing={1} alignItems={"flex-start"} padding="5px 10px" minH="50px" maxH={"100px"} boxSizing="content-box">
         <Text fontWeight={"bold"} fontSize="10px">

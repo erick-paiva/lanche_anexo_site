@@ -22,7 +22,7 @@ export const MenuCategorias = () => {
         mt="1px"
       >
         {images.map(({name, img}) => (
-            <CardCategory name={name} img={img} />
+            <CardCategory key={name} name={name} img={img} />
         ))}
       </Grid>
       <ControlerUser />

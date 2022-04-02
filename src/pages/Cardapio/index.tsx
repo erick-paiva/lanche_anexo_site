@@ -6,6 +6,8 @@ import { HeaderLanche } from "../../components/Header";
 import { todosProdutos } from "../../Data/produtos";
 import imgDefault from "../../assets/ImagensCategorias/lanches.svg";
 import { useCart } from "../../hooks/CartContext";
+import { useEffect, useRef } from "react";
+
 
 interface Props {
   categoria: keyof typeof todosProdutos;
@@ -13,8 +15,20 @@ interface Props {
 
 export const Cardapio = () => {
   const { categoria } = useParams<Props>();
-
+  // const test= useRef<HTMLDivElement>({} as HTMLDivElement);
   const { addProductToCart } = useCart();
+
+
+  // const scrollHandler = () => {
+  //   console.log(test.current.getBoundingClientRect());
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollHandler, true);
+  //   return () => {
+  //     window.removeEventListener("scroll", scrollHandler, true);
+  //   };
+  // }, []);
+
 
   return (
     <Flex flexDirection={"column"} h="100vh" justifyContent={"space-between"}>
@@ -38,6 +52,8 @@ export const Cardapio = () => {
               addProductToCart({ nome, descricao, preco, quantidade: 1 })
             }
             key={nome}
+            // ref={test}
+            cursor="pointer"
           >
             <CardProdutos
               key={`${nome}${descricao}`}
@@ -50,7 +66,7 @@ export const Cardapio = () => {
         ))}
       </Grid>
 
-      <ControlerUser />
+      <ControlerUser ordem={[3,1,2]} selecionado={3} />
     </Flex>
   );
 };
